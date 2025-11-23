@@ -17,5 +17,6 @@ WORKDIR /app
 
 COPY --from=builder /app/app .
 COPY --from=builder /app/config/docker.yaml ./docker.yaml
+COPY --from=builder /app/docs/openapi.yml ./docs/openapi.yml
 
 EXPOSE 8080

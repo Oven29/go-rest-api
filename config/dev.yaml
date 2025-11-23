@@ -1,6 +1,6 @@
 env: dev
 log_level: info
-eanable_swagger: true
+enable_swagger: true
 http_server:
   address: ":8080"
 db:

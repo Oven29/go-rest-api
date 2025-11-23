@@ -57,7 +57,7 @@ func getLogLevel(cfg *config.Config) slog.Level {
 }
 
 func registerSwagger(router *gin.Engine) {
-	router.Static("/docs", "/home/ivan/projects/go-rest-api/docs")
+	router.Static("/docs", "./docs")
 	url := ginSwagger.URL("/docs/openapi.yml")
 	router.GET("/swagger/*any", ginSwagger.WrapHandler(files.Handler, url))
 }
