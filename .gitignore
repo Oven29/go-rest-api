@@ -1,2 +1,5 @@
 .vscode/
 bin/
+
+venv/
+__pycache__/

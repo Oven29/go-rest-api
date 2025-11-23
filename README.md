@@ -60,6 +60,7 @@ docker compose down
 
 ### Тесты
 
+Для тестов нужен Python c установленными зависимостями `test/requirements.txt`
 ```bash
 make test
 ```

@@ -15,7 +15,7 @@ docker-down:
 	docker compose down
 
 test:
-	go test ./tests/... -coverprofile=coverage.out
+	pytest -v .
 
 install:
 	go mod download
