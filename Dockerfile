@@ -16,5 +16,6 @@ RUN apk add --no-cache ca-certificates
 WORKDIR /app
 
 COPY --from=builder /app/app .
+COPY --from=builder /app/config/docker.yaml ./docker.yaml
 
 EXPOSE 8080

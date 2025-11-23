@@ -3,7 +3,7 @@ log_level: info
 eanable_swagger: false
 http_server:
   host: localhost
-  port: 8000
+  port: 8080
 db:
   host: postgres
   port: 5432

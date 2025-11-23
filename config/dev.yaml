@@ -3,7 +3,7 @@ log_level: info
 eanable_swagger: true
 http_server:
   host: localhost
-  port: 8000
+  port: 8080
 db:
   host: 127.0.0.1
   port: 5432
