@@ -1,0 +1,12 @@
+env: dev
+log_level: info
+eanable_swagger: false
+http_server:
+  host: localhost
+  port: 8000
+db:
+  host: postgres
+  port: 5432
+  user: postgres
+  password: qwerty
+  db_name: go_rest_api

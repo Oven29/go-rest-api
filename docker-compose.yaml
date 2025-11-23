@@ -1,0 +1,53 @@
+
+services:
+  postgres:
+    image: postgres:latest
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: qwerty
+      POSTGRES_DB: go_rest_api
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    networks:
+      - common
+
+  migrations:
+    build:
+      context: .
+      dockerfile: ./deploy/goose/Dockerfile
+    depends_on:
+      - postgres
+    environment:
+      DATABASE_URL: "postgres://postgres:qwerty@postgres:5432/go_rest_api?sslmode=disable"
+    command: [
+      "goose",
+      "-dir",
+      "migrations",
+      "postgres",
+      "${DATABASE_URL}",
+      "up"
+    ]
+    networks:
+      - common
+
+  app:
+    build: .
+    container_name: go_rest_api
+    environment:
+      CONFIG_PATH: /app/docker.yaml
+    depends_on:
+      - migrations
+    ports:
+      - "8080:8080"
+    networks:
+      - common
+    command: ["./app"]
+
+volumes:
+  pgdata:
+
+networks:
+  common:
+    driver: bridge
