@@ -17,6 +17,10 @@ type PullRequest struct {
 	Reviewers []User   `gorm:"many2many:pull_request_reviewer;foreignKey:ID;joinForeignKey:PrID;References:ID;joinReferences:ReviewerID"`
 }
 
+func (PullRequest) TableName() string {
+	return "pull_requests"
+}
+
 type PullRequestReviewer struct {
 	PrID       uint `gorm:"primaryKey"`
 	ReviewerID uint `gorm:"primaryKey;index:idx_reviewer_id"`
