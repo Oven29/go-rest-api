@@ -2,10 +2,9 @@ env: dev
 log_level: info
 eanable_swagger: true
 http_server:
-  host: localhost
-  port: 8080
+  address: ":8080"
 db:
-  host: 127.0.0.1
+  host: localhost
   port: 5432
   user: postgres
   password: qwerty

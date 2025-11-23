@@ -34,10 +34,9 @@ func main() {
 		registerSwagger(router)
 	}
 
-	address := fmt.Sprintf("%s:%d", cfg.HTTPServer.Host, cfg.HTTPServer.Port)
-	logger.Info("Starting server on http://" + address)
+	logger.Info("Starting server on " + cfg.HTTPServer.Address)
 
-	if err := router.Run(address); err != nil {
+	if err := router.Run(cfg.HTTPServer.Address); err != nil {
 		log.Fatalf("Failed to start server: %v", err)
 	}
 }

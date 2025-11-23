@@ -16,8 +16,7 @@ type Config struct {
 }
 
 type HTTPServer struct {
-	Host string `yaml:"host" env-default:"localhost"`
-	Port uint   `yaml:"port" env-default:"8080"`
+	Address string `yaml:"address" env-default:":8080"`
 }
 
 type DB struct {
