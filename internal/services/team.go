@@ -83,12 +83,10 @@ func (s *teamService) CreateTeam(ctx context.Context, req dto.CreateTeamRequest)
 			}
 		}
 
-		teamWithMembers, err := s.teamRepo.GetByNameWithMembers(ctx, req.TeamName)
-		if err != nil {
-			return err
+		result = &dto.Team{
+			TeamName: req.TeamName,
+			Members:  req.Members,
 		}
-
-		result = mapTeamToDTO(teamWithMembers)
 		return nil
 	})
 
